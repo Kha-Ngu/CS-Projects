@@ -1,20 +1,25 @@
 /**
- * Simple driver to test Money, Date, and Bill classes
- * @author Rob Nash, borrowed from cfolsen
+* A driver to test Money, Date, and Bill classes.
+*@author Khanh Nguyen, borrowed from Rob Nash
 */
 public class BillMoneyDateDriver
 {
     /**
-    main driver function
-    pre: none
-    post: exercises the methods in Bill, Money, and Date (not done)
-     * @throws Exception
-    */
+     * Main driver for testing
+     * Pre: nothing
+     * Post: Print out a list of errors, periods if no errors
+     * @param args  Array of command lines
+     * @throws Exception    thrown when input violates class invariants
+     */
     public static void main(String[] args) throws Exception {
-        moneyTests();
-        dateTests();
-        billTests();
+        moneyTests(); //tests the Money class
+        dateTests(); //tests the Date class
+        billTests(); //tests the Bill class
     }
+    /**
+     * Test the money class
+     * @throws Exception    thrown if the class invariants are violated
+     */
     public static void moneyTests() throws Exception {
         System.out.println("Money Test Starts:");
         Money money1 = new Money(10);
@@ -131,6 +136,11 @@ public class BillMoneyDateDriver
         System.out.println("All tests passed!");
         System.out.println("--------------------------------------");
     }
+
+    /**
+     * Tests the Date class
+     * @throws Exception    thrown if input violates class invariants
+     */
     public static void dateTests() throws Exception {
         System.out.println("Date Test Start:");
 
@@ -254,6 +264,10 @@ public class BillMoneyDateDriver
         System.out.println("----------------------------------------");
     }
 
+    /**
+     * Tests the Bill class
+     * @throws Exception    thrown if input violates the class invariants
+     */
     public static void billTests() throws Exception {
         System.out.println("Bill Test Start:");
         //Construct some bills
