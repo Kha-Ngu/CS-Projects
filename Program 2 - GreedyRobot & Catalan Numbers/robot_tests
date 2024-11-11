@@ -1,0 +1,177 @@
+echo "Test X: (shortest distance, number of paths)"
+echo "TEST 1: (2,2)"
+./greedy_robot 1 3 4 4 3
+echo "TEST 2: (Already there)"
+./greedy_robot 2 1 1 1 1
+echo "TEST 3: (NP, 0)"
+./greedy_robot 1 1 1 5 1
+
+echo "================================="
+echo "Expanded Shell Script: More Tests"
+echo "================================="
+# Test 1: Basic functionality check
+echo "Test 1: Moving from (1,2) to (3,5) with max_distance=2"
+echo "Expected number of paths: 7"
+./greedy_robot 2 1 2 3 5
+echo "----------------------------------------"
+
+# Test 2: Robot starting and ending at the same position
+echo "Test 2: Robot at (2,2) to (2,2) with max_distance=2"
+echo "Expected number of paths: 1 (no movement needed)"
+./greedy_robot 2 2 2 2 2
+echo "----------------------------------------"
+
+# Test 3: Simple path with limited distance
+echo "Test 3: Moving from (1,1) to (3,3) with max_distance=2"
+echo "Expected number of paths: 6"
+./greedy_robot 2 1 1 3 3
+echo "----------------------------------------"
+
+# Test 4: Vertical movement test
+echo "Test 4: Moving from (0,0) to (0,3) with max_distance=3"
+echo "Expected number of paths: 1 (vertical movement possible)"
+./greedy_robot 3 0 0 0 3
+echo "----------------------------------------"
+
+# Test 5: Long horizontal path with limited moves
+echo "Test 5: Moving from (0,0) to (5,0) with max_distance=2"
+echo "Expected number of paths: 0"
+./greedy_robot 2 0 0 5 0
+echo "----------------------------------------"
+
+# Test 6: Short horizontal path
+echo "Test 6: Moving from (0,0) to (4,0) with max_distance=2"
+echo "Expected number of paths: 0"
+./greedy_robot 2 0 0 4 0
+echo "----------------------------------------"
+
+# Test 7: Horizontal movement with a single step
+echo "Test 7: Moving from (1,1) to (2,1) with max_distance=3"
+echo "Expected number of paths: 1"
+./greedy_robot 3 1 1 2 1
+echo "----------------------------------------"
+
+# Test 8: Diagonal path case
+echo "Test 8: Moving from (0,0) to (4,4) with max_distance=4"
+echo "Expected number of paths: 70"
+./greedy_robot 4 0 0 4 4
+echo "----------------------------------------"
+
+# Test 9: Simple vertical path
+echo "Test 9: Moving from (1,1) to (1,5) with max_distance=5"
+echo "Expected number of paths: 1"
+./greedy_robot 5 1 1 1 5
+echo "----------------------------------------"
+
+# Test 10: Straight line path
+echo "Test 10: Moving from (0,0) to (6,6) with max_distance=6"
+echo "Expected number of paths: 924"
+./greedy_robot 6 0 0 6 6
+echo "----------------------------------------"
+
+# Test 11: Short horizontal movement
+echo "Test 11: Moving from (2,1) to (4,1) with max_distance=3"
+echo "Expected number of paths: 1"
+./greedy_robot 3 2 1 4 1
+echo "----------------------------------------"
+
+# Test 12: Short vertical movement
+echo "Test 12: Moving from (2,2) to (2,3) with max_distance=2"
+echo "Expected number of paths: 1"
+./greedy_robot 2 2 2 2 3
+echo "----------------------------------------"
+
+# Test 13: Insufficient distance to move diagonally
+echo "Test 13: Moving from (1,1) to (2,2) with max_distance=1"
+echo "Expected number of paths: 2"
+./greedy_robot 1 1 1 2 2
+echo "----------------------------------------"
+
+# Test 14: Moving diagonally with max distance constraint
+echo "Test 14: Moving from (0,0) to (3,3) with max_distance=3"
+echo "Expected number of paths: 20"
+./greedy_robot 3 0 0 3 3
+echo "----------------------------------------"
+
+# Test 15: Vertical path with max distance
+echo "Test 15: Moving from (1,1) to (1,4) with max_distance=2"
+echo "Expected number of paths: 0 (not possible)"
+./greedy_robot 2 1 1 1 4
+echo "----------------------------------------"
+
+# Test 16: Path with multiple options
+echo "Test 16: Moving from (1,1) to (3,0) with max_distance=3"
+echo "Expected number of paths: 3"
+./greedy_robot 3 1 1 3 0
+echo "----------------------------------------"
+
+# Test 17: Vertical to horizontal movement
+echo "Test 17: Moving from (0,0) to (4,3) with max_distance=4"
+echo "Expected number of paths: 35"
+./greedy_robot 4 0 0 4 3
+echo "----------------------------------------"
+
+# Test 18: Different paths available
+echo "Test 18: Moving from (0,0) to (2,2) with max_distance=5"
+echo "Expected number of paths: 6"
+./greedy_robot 5 0 0 2 2
+echo "----------------------------------------"
+
+# Test 19: One move vertically and horizontally
+echo "Test 19: Moving from (0,0) to (3,1) with max_distance=3"
+echo "Expected number of paths: 4"
+./greedy_robot 3 0 0 3 1
+echo "----------------------------------------"
+
+# Test 20: Different path lengths
+echo "Test 20: Moving from (0,0) to (3,3) with max_distance=4"
+echo "Expected number of paths: 20"
+./greedy_robot 4 0 0 3 3
+echo "----------------------------------------"
+
+# Test 21: Insufficient distance to reach the target
+echo "Test 21: Moving from (1,1) to (3,3) with max_distance=1"
+echo "Expected number of paths: 2"
+./greedy_robot 1 1 1 3 3
+echo "----------------------------------------"
+
+# Additional Tests with Negative Coordinates
+# Test 22: Moving to negative coordinates
+echo "Test 22: Moving from (0,0) to (-3,-3) with max_distance=3"
+echo "Expected number of paths: 20"
+./greedy_robot 3 0 0 -3 -3
+echo "----------------------------------------"
+
+# Test 23: Negative to positive coordinates
+echo "Test 23: Moving from (-2,-2) to (1,1) with max_distance=4"
+echo "Expected number of paths: 20"
+./greedy_robot 4 -2 -2 1 1
+echo "----------------------------------------"
+
+# Test 24: Moving from negative to positive with constraints
+echo "Test 24: Moving from (-1,-1) to (2,2) with max_distance=2"
+echo "Expected number of paths: 14"
+./greedy_robot 2 -1 -1 2 2
+echo "----------------------------------------"
+
+# Test 25: Short path in negative direction
+echo "Test 25: Moving from (1,1) to (-2,-2) with max_distance=3"
+echo "Expected number of paths: 20"
+./greedy_robot 3 1 1 -2 -2
+echo "----------------------------------------"
+
+# Test 26: No valid paths
+echo "Test 26: Moving from (3,3) to (3,7) with max_distance=2"
+echo "Expected number of paths: 0 (not possible)"
+./greedy_robot 2 3 3 3 7
+echo "----------------------------------------"
+
+# Test 27: Paths exceeding limits
+echo "Test 27: Moving from (1,3) to (-2,4) with max_distance=2"
+echo "Expected number of paths: 2"
+./greedy_robot 2 1 3 -2 4
+echo "----------------------------------------"
+
+echo "==========================="
+echo " All tests completed."
+echo "==========================="
